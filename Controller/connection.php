@@ -1,11 +1,12 @@
 <?php
 
-$con = mysqli_connect("localhost","root","","purephp");
+$mysqli = new mysqli("localhost","root","","purephp");
 $query = "SELECT * from user";
-$result = mysqli_query($con, $query);
+// $result = $mysqli->query($mysqli, $query);
 
 // Check connection
-if (!$con) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+if ($mysqli->connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli->connect_error;
   exit();
 }
+
