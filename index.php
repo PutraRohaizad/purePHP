@@ -74,7 +74,7 @@ include_once "./Controller/connection.php";
                     </div>
                 </div>
                 <div class="text-center mt-5">
-                    <button class="btn btn-primary">Submit</button>
+                    <button class="btn btn-primary" name="save">Submit</button>
                 </div>
             </form>
         </div>
@@ -90,7 +90,7 @@ include_once "./Controller/connection.php";
                     <th scope="col">Phone</th>
                     <th scope="col">Email</th>
                     <th scope="col">Note</th>
-                    <th scope="col">Action</th>
+                    <th colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -108,9 +108,9 @@ include_once "./Controller/connection.php";
                     <td><?php echo $row['phone_number']; ?></td>
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['note']; ?></td>
-                    <td>
-                        <a href="" class="btn btn-info">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
+                    <td >
+                        <a href="index.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Edit</a>
+                        <a href="/Controller/controller.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
                 <?php endwhile ?>
