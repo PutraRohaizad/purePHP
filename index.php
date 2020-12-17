@@ -1,5 +1,5 @@
 <?php
-
+include_once "./Controller/connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,6 +78,44 @@
                 </div>
             </form>
         </div>
+
+        <!-- Table -->
+        <table class="table table-hover table-card table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $fetch = "SELECT * from user";
+                    $result = $mysqli->query($fetch); 
+                ?>
+                <?php $no= 1; ?>
+                <?php while($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['age']; ?></td>
+                    <td><?php echo $row['address']; ?></td>
+                    <td><?php echo $row['phone_number']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['note']; ?></td>
+                    <td>
+                        <a href="" class="btn btn-info">Edit</a>
+                        <a href="" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                <?php endwhile ?>
+            </tbody>
+        </table>
     </div>
 
 </body>
