@@ -13,6 +13,12 @@ include_once "./Controller/connection.php";
     <title>Pure PHP Project</title>
 </head>
 <body>
+    <?php if(isset($_SESSION['message'])): ?>
+        <div class="alert alert-<?=$_SESSION['type'];?>">
+            <?php echo $_SESSION['message']; ?>
+            <?php echo $_SESSION['type']; ?>
+        </div>
+    <?php endif ?>
     <div class="text-center" style="margin-top: 7%;">
        <u> <h2>REGISTRATION FORM</h2></u>
     </div>
